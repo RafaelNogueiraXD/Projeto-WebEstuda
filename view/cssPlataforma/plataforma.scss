@@ -1,0 +1,243 @@
+$primaria:#004D4D;
+$secundaria: #a6a6a6;
+$corConfirma: rgb(6, 221, 6);
+$corCancela: #DD0426;
+$corEdita: #b38f00;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#footer{
+    border-top: 1px solid black;
+}
+@import "../css/scss/functions";
+@import "../css/scss/objetos";
+@import "../css/scss/envio";
+@import "../css/ADM/adm";
+.dropdown {
+    position: relative;
+    color:#c0c0c0;
+    display: inline-block;
+    cursor: pointer;
+    &:hover{
+        transition: all 400ms;
+        color: white;
+        display: block;
+        .dropdown-content{
+            display: block;
+        }
+
+    }
+    
+  }
+  .tituloDisciplinas{
+      background-color: white;
+      text-align: center;
+      font-size: 35px;
+    }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+    color:black;
+   
+    &:hover{
+        transition: all 400ms;
+       
+    }
+    a{
+        font-size: 16px;
+        width: auto;
+        // height: 50px;
+        color: #c0c0c0;
+        &:hover{
+            border-radius: 15px;
+            transition: all 400ms;
+            font-size: 18px;
+            color: red;
+            background-color: rgb(32, 32, 32);
+        }
+    }
+  
+  }
+.linksTopicos{
+    border: 1px solid black;
+    /* margin-right: 10%; */
+    text-align: center;
+    background: #f7f7f77e;
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+    box-shadow: -4px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+    width: 400px;
+    // position: fixed;
+}
+.topicoContexto{
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+    box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 26px;
+    padding: 20px;
+    margin-bottom: 5%;
+}
+.containerCarrosel{
+    /* margin-top: 10%; */
+    height: 100%;
+    margin-top: auto;
+    /* background-color: rgba(255, 255, 255, 0.37); */
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    // border: 1px solid black;
+    padding: 10px;
+}
+.your-class{
+    margin-top: 5%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+    div{
+        margin-left: 20px;
+    }
+    
+    /* background-color: rgba(0, 255, 255, 0.404); */
+
+}
+.perfilUsu{
+    width: 60%;
+    height: auto;
+    background: #F2F2F2;
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+    box-shadow: -8px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 26px;
+    margin-top: 10%;
+    margin-bottom: 10%;   
+    margin-left: auto;
+    margin-right: auto;
+    header{
+        padding: 20px;
+        text-align: center;
+        h1{
+            color: black;
+        }
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-left: 60px;
+        p{
+            color: #000000;
+        }
+    }
+}
+.forumContainerMain{
+    border: 2px solid $primaria;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    header{
+        text-align: center;
+        padding: 20px;
+        h1{
+            font-family: Noto Serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 27px;
+            color: #000000;
+        }
+    }
+    .corpoDoForum{
+        margin-left: 27px;
+        min-height: 150px;
+        span{
+            font-family: Noto Serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 27px;
+            color: #000000;
+        }
+    }
+    footer{
+        // margin-top: 90%;
+        margin-bottom: 0;
+        height: 50px;
+        border-top: 1px solid black;
+        text-align: end;
+        // padding-top: 10px;
+        a{
+            margin: 10px;
+            color: $primaria;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+    }
+}
+.forumContainerResposta{
+    border: 2px solid $primaria;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    // margin-top: 10%;
+    margin-bottom: 5%;
+    header{
+        text-align: start;
+        padding: 20px;
+        padding-left: 27px;
+        h1{
+            font-family: Noto Serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 27px;
+            color: #000000;
+        }
+    }
+    .corpoDoForum{
+        margin-left: 27px;
+        min-height: 150px;
+        span{
+            font-family: Noto Serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 27px;
+            color: #000000;
+        }
+    }
+    footer{
+        // margin-top: 90%;
+        margin-bottom: 0;
+        height: 50px;
+        border-top: 1px solid black;
+        text-align: end;
+        // padding-top: 10px;
+        a{
+            margin: 10px;
+            color: $primaria;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+    }
+}
+.reduzBotao{
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 70px;
+}
+

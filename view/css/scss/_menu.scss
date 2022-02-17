@@ -1,0 +1,56 @@
+
+.MeuMenu{
+    display: grid;
+    grid-template-columns: 1.5fr 8fr 1.7fr;
+    background-color: #161616b2;
+    width: 100%;
+    height: 12vh;
+    position: fixed;
+    text-align: center;
+    div{
+    @include centraliza();
+    
+    }
+  }
+  .Slogan{
+    @include imagem("img/logos/livrera3.png","165.13px","76px");
+    display: block;
+  }
+  .menuOptions {
+    @include centraliza();
+    font-size: 25px;
+    div{
+      margin-left: 10%;
+      b{
+        a{
+        
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-block;
+          position: relative;
+          
+          &::before{
+            content: "";
+            position: absolute;
+            width: 200%;
+            transform: scaleX(0);
+            height: 5px;
+            bottom: -4.5vh;
+            left: -50%;
+            // right: 100px;
+            background: #14eab3ff;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+          }
+          &:hover{
+            text-decoration: none;
+            &::before{
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
+          }
+          
+        }
+      }
+    }
+  }

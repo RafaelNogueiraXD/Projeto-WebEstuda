@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.js"></script>
+    <title>Adm</title>
+</head>
+<style>
+    *{
+        color: black;
+    }
+</style>
+<body>
+    <header class="headadm">
+        <div class="slogan">
+            <a href="historico.html">
+                <img src="../../css/img/logos/webestuda.png"  width="91px" height="87px">
+            </a>
+        </div>
+        <div>
+            <a href="curso.html" class="opcoesAdm">Cursos</a>
+            <a href="disciplina.html" class="opcoesAdm">Disciplinas</a>
+            <a href="usuario.html" class="opcoesAdm">Usuários</a>
+
+        </div>
+        <div>
+            <a href="../../../model/usuario/sair.php" class="red-btn">Sair</a>
+        </div>
+    </header>
+    <main class="mostraUsuarioAdm">
+        <h1 >Usuário Nome x</h1>
+        <div class="verUsuarioEdit">
+            <a href="verUsuario.html" class="btn">Ver usuário</a>
+        </div>
+
+        <section>
+            <div id="p1MostraUsuarioAdm">
+                <input type="text" value="Rafael nogueira Rodrigues">
+                <input type="text" value="rafael@gmail.com">
+                <input type="text" value="Santana do Livramento">
+                <input type="date" value="05/05/2022">
+                <input type="text" value="senha123">
+            </div>
+            <div>
+                <input type="text" value="Aluno">
+                <input type="text" value="Info_000naoSeiDasQuanta">
+                <span class="estilizaBotaoRemover">
+                    <a href="" class="btn-concluir">Concluir</a><br>
+                </span>
+                <span class="estilizaBotaoRemover">
+                    
+                </span>
+                <!-- <div></div> -->
+                
+            </div>
+        </section>
+    </main>
+    
+    <script src="../../js/main.js"></script>
+        <script>
+            $("#cadastro").hide();
+            $("#abreCad").click(function(){
+                $("#cadastro").fadeIn();
+            });
+            $(".close").click(function(){
+                $("#cadastro").fadeOut();
+            });
+            $("#matricula").hide();
+            $("#matricula1").hide();
+            function displayVals(){
+            var cargos = $("#selectCargos").val();
+                if(cargos == "Aluno"){
+                    $("#matricula").fadeIn();
+                    $("#matricula1").fadeIn();
+                }else{
+                    $("#matricula").fadeOut();
+                    $("#matricula1").fadeOut();
+
+                }
+            }
+            $( "select" ).change( displayVals );
+            displayVals();
+        </script>
+</body>
+</html>

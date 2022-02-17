@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.js"></script>
+    <title>Adm</title>
+</head>
+<style>
+    *{
+        color: black;
+    }
+</style>
+<body>
+    <header class="headadm">
+        <div class="slogan">
+            <a href="historico.html">
+                <img src="../../css/img/logos/webestuda.png"  width="91px" height="87px">
+            </a>
+        </div>
+        <div>
+            <a href="curso.html" class="opcoesAdm">Curso</a>
+            <a href="disciplina.html" class="opcoesAdm">Disciplina</a>
+            <a href="usuario.html" class="opcoesAdm">Usuário</a>
+
+        </div>
+        <div>
+            <a href="../../../model/usuario/sair.php" class="red-btn">Sair</a>
+        </div>
+    </header>
+
+    <main class="admAdd">
+        <a class="btn-concluir" style="margin-left: 89%;margin-top: 3vh;" id="abreCad">Adicionar</a>
+        <section id="cadastro">
+            <a class="close">x</a>
+            <h1>Adicionar Curso</h1>
+            <form id="add" >
+                <div class="formulario">
+                    <div>
+                        <label for="">Nome:</label>
+                        <input type="text" name="nome" id="nomeC" placeholder="Digite o Nome"> <br>
+                    </div>
+                    <div>
+                        <label for="">Siglas:</label>
+                        <input type="text" placeholder="Digite o Campo " name="sigla" id="sigla">
+                    </div>
+                    <div class="concluir">
+                        <center>
+                            <input type="submit" class="btn-concluir">
+                        </center>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <h1>Cursos</h1>
+        <section class="mostraDadosAdm">
+            <table border="0">                         
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Siglas</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody id="conteudo">
+                    <tr>
+                        <td>1</td>
+                        <td>Informática para Internet</td>
+                        <td>Info</td>
+                        <td><a href="" id="edita"><img  src="../../css/img/icones/excluir.png" width="36px" height="37px"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script src="../../js/main.js"></script>
+        <script>
+            $("#cadastro").hide();
+            $("#abreCad").click(function(){
+                $("#cadastro").fadeIn();
+            });
+            $(".close").click(function(){
+                $("#cadastro").fadeOut();
+            });
+        </script>
+        <script src="../../../model/curso/curso.js"></script>
+</body>
+</html>

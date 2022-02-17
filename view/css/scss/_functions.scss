@@ -1,0 +1,43 @@
+@mixin centraliza {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin link {
+    text-decoration: none;
+    transition: all 400ms;
+}
+@mixin fundo($fundo){
+    height: 800px;
+    background: $fundo;
+}
+@mixin titulo {
+    font-size: 30px;
+}
+@mixin paragrafo {
+    font-size: 25px;
+    text-align: left;
+    margin-left: 25%;
+
+}
+@mixin conteudos{
+    div{
+        padding-top: 5%;
+        flex: 1;
+        p{
+            @include centraliza();
+            @include paragrafo();
+            width: 60%;
+            color: grey;
+        }
+    }
+}
+@mixin imagem($url,$largura,$altura) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $largura;
+    height: $altura;
+}

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&family=Oleo+Script+Swash+Caps&display=swap");
+
+$primaria:#004D4D;
+$secundaria: #a6a6a6;
+$corConfirma: rgb(6, 221, 6);
+$corCancela: #DD0426;
+$corEdita: #b38f00;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Cousine', monospace ;
+  color: #f2f2f2;
+}
+body{
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+@import "scss/functions";
+@import "scss/objetos";
+@import "scss/config";
+@import "scss/menu";
+@import "scss/apresenta";
+@import "template/menutemplate";
+@import "adm/login";
+@import "adm/adm";
+.pintaVerde{
+  color: $corConfirma;
+}
+
+footer{
+  background-color: #161616;
+  height: 152px;
+  width: 100%;
+  display:flex;
+  @include centraliza();
+  a{
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+a{
+  color: white;
+  text-decoration: none;
+  font-family:'Cousine', monospace ;
+
+  &:hover{
+    color: $primaria;
+  }
+}
+h1{
+  font-size: 36px;
+}
+h1, h2, h3, h4{
+  color: white;
+  font-family: 'Oleo Script', cursive;
+}
+
+.conteudo{
+  margin-top: 12vh;
+  width: 100%;
+  margin-left: 20%;
+
+}

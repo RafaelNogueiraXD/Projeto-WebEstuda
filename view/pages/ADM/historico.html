@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.js"></script>
+    <title>Adm</title>
+</head>
+<style>
+    *{
+        color: black;
+    }
+    .conteudoHistorico{
+        margin-top: 5%;
+    }
+   
+</style>
+<body>
+    <header class="headadm">
+        <div class="slogan">
+            <a href="historico.html">
+                <img src="../../css/img/logos/webestuda.png"  width="91px" height="87px">
+            </a>
+        </div>
+        <div>
+            <a href="curso.html" class="opcoesAdm">Cursos</a>
+            <a href="disciplina.html" class="opcoesAdm">Disciplinas</a>
+            <a href="usuario.html" class="opcoesAdm">Usuários</a>
+
+        </div>
+        <div>
+            <a href="../../../model/usuario/sair.php" class="red-btn">Sair</a>
+        </div>
+    </header>
+
+  
+    <main class="admAdd">
+        <div class="conteudoHistorico">
+            <h1>Histórico de Atividades</h1>
+            <section class="mostraDadosAdm">
+                <table border="0">                         
+                    <thead>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Item</th>
+                        <th>Data de Execução</th>
+                    </thead>
+                    <tbody id="conteudo">
+                        <tr>
+                            <td>1</td>
+                            <td> <span class="pintaVerde"> Cadastro </span> </td>
+                            <td><a href="">Usuário X</a></td>
+                            <td>19/01/2022</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <script src="../../js/main.js"></script>
+        <script>
+            $("#cadastro").hide();
+            $("#abreCad").click(function(){
+                $("#cadastro").fadeIn();
+            });
+            $(".close").click(function(){
+                $("#cadastro").fadeOut();
+            });
+        </script>
+        <script src="./../../../model/historico/historico.js"></script>
+</body>
+</html>

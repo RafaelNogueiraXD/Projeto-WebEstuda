@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.js"></script>
+    <title>Document</title>
+</head>
+<body class="paginaLogin">
+    <header class="loginh">
+        <a href="../Plataforma/index.html">
+            <img src="../../css/img/logos/webestuda.png" width="91px" height="87px" >
+        </a>
+    </header>
+    <main class="loginb">
+        <div>
+            <h1>Login </h1>
+        </div>
+        <form action="../../../model/usuario/usuarioExe.php" method="POST">
+            <div>
+                <input type="email" placeholder="Digite seu Email" name="email" id="emaila">
+            </div>
+            <div>
+                <input type="password" placeholder="Digite sua Senha" name="senha" id="senha">
+                <input type="hidden" placeholder="Digite sua Senha" name="determinante" id="determinante" value="5" >
+            </div>
+            <div>
+                <input type="submit" class="btn-concluir">
+            </div>
+            <span id="msg"></span>
+        </form>
+    </main>
+
+
+
+    
+    <script src="../../js/main.js"></script>
+    <script src="../../../model/usuario/usuario.js"></script>
+</body>
+</html>

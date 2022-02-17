@@ -1,0 +1,376 @@
+// botoes
+.btn{
+    @include link();
+    @include centraliza();
+    height: 45px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid $primaria;
+    border-radius: 10px;
+    color: $primaria;
+    cursor: pointer;
+    &:hover{
+        color: white;
+        background-color: $primaria;
+    }
+}
+.btn-concluir{
+    @include link();
+    @include centraliza();
+    // background: rgb(6, 221, 6);
+    border:1px solid rgb(6, 221, 6);
+    border-radius:10px;
+    padding: 12px;
+    color: rgb(6, 221, 6);
+    transition: all 400ms;
+    min-width: 150px;
+    max-width: 150px;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover{
+        text-decoration: none;
+        color: #f2f2f2;
+        background-color: $corConfirma;
+    }
+}
+.red-btn{
+    @include link();
+    @include centraliza();
+    // background: rgb(6, 221, 6);
+    border:none;
+    border-radius:10px;
+    padding: 12px;
+    color: #DD0426;
+    transition: all 400ms;
+    min-width: 125px;
+    max-width: 125px;
+    height: 61;
+    cursor: pointer;
+
+    border: 1px solid #DD0426;
+    &:hover{
+        background-color: #DD0426;
+        color: #f2f2f2;
+        text-decoration: none;
+    }
+}
+.amarelo-edita{
+    @include link();
+    @include centraliza();
+    // background: rgb(6, 221, 6);
+    border:none;
+    border-radius:10px;
+    padding: 12px;
+    color: $corEdita;
+    transition: all 400ms;
+    min-width: 125px;
+    max-width: 125px;
+    height: 61;
+    cursor: pointer;
+
+    border: 1px solid $corEdita;
+    &:hover{
+        background-color: $corEdita;
+        color: #f2f2f2;
+        text-decoration: none;
+    }
+}
+.btn-efect{
+    cursor: pointer;
+    @include link();
+    @include centraliza();
+    height: 45px;
+    margin: 10px;
+    padding: 15px;
+    // border: 1px solid $primaria;
+    border-radius: 10px;
+    color: $primaria;
+    &:hover{
+        color: white;
+        background-color: $primaria;
+        box-shadow: 0 0 10px $primaria,0 0 0px $primaria,
+        0 0 20px $primaria,;
+    }
+}
+.btncromado{
+    cursor: pointer;
+    @include link();
+    @include centraliza();
+
+    width: 120px;
+    height: 53px;
+   border: 1px solid black;
+   border-radius: 20px;
+    color: #161616;
+    background: linear-gradient(to left, #9B51E0,#0693E3);
+    transition: all 400ms;
+
+
+
+    background: linear-gradient(281.04deg, #9B51E0 0%, #0693E3 100%);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+
+    &:hover{
+        color: $primaria;
+        border:1px solid $primaria;
+    }
+}
+//titulo
+.texto{
+    font-size: 14px;
+}
+.legenda{
+    color: $secundaria;
+}
+@keyframes neon{
+    from {
+        filter: drop-shadow(0 0 0 $primaria);
+    }
+    to {
+        filter: drop-shadow(0 0 30px $primaria);
+    }
+}
+.tmodern{
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: $primaria;
+    color: transparent;
+    animation: neon 3s alternate infinite ease-in-out;
+}
+//centraliza
+.primaria{
+    color: $primaria;
+}
+.centraliza{
+    margin:10px;
+    display: flex;
+    min-height: 5vh;
+    width: 100%;
+    @include centraliza();
+}
+
+table{
+    width: 100%;
+    border: 1 solid grey; 
+    border-collapse: collapse;
+    thead{
+        tr{
+            &:hover{
+                background-color: rgba(0,0,0,0.0);
+            }
+        }
+    }
+    th{
+        border-bottom: 1px solid black;
+        width: 500px;
+        font-size: 20px;
+        // -webkit-text-stroke-width: 0.5px;
+        // -webkit-text-stroke-color: $primaria;
+        // color: white;
+        color: #000000;
+        padding: 20px;
+    }
+    tr{
+        width: 500px;
+        .md{
+            border-left: 1px solid $primaria;
+            border-right: 1px solid $primaria;
+        }
+        td{
+            padding: 40px;
+            font-size: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        &:hover{
+            background-color: rgba(0,0,0,0.05);
+
+        }
+    }
+}
+
+//Dropdown
+.menu{
+    list-style:none; 
+    float:left; 
+    li{
+        position:relative; 
+        float:left; 
+        a{
+            color:$secundaria; text-decoration:none; padding:5px 10px; display:block;
+            transition: all 400ms;
+
+            &:hover{
+                background:$primaria; 
+                color:#fff; 
+                -moz-box-shadow:0 3px 10px 0 #CCC; 
+                -webkit-box-shadow:0 3px 10px 0 #ccc; 
+                text-shadow:0px 0px 5px #fff; 
+            }
+        }
+    }
+    li ul{
+        position:absolute; 
+        top:25px; 
+        left:-40px;
+        background-color:transparent; 
+        display:none;
+        transition: all 400ms;
+
+    }
+    li ul li{
+        // border:1px solid $primaria; 
+        background: rgba(171, 164, 173,0.3);
+        // border-radius: 10px;
+        display:block; 
+        width:150px;
+        transition: all 200ms;
+    }
+}
+.menu li:hover ul, .menu li.over ul{display:block;}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 120%;
+    background: rgba(0,0,0,0.5);
+    .conteudoModal{
+        margin-left: 30%;
+        width: 50%;
+        min-height: 30vh;
+        background: white;
+        position: fixed;
+        border-radius: 20px;
+        .inicioModal{
+            display: grid;
+            grid-template-columns: 9fr 1fr;
+            div{
+                display: flex;
+                margin-top: 5%;
+                @include centraliza();
+                button{
+                    padding: 10px;
+                    background: transparent;
+                    border: none;
+                    box-shadow: none;
+                    transition: all 400ms;
+                    &:hover{
+                        color: red;
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+        }
+        .meioModal{
+            display: grid;
+            grid-template-columns:1fr;
+            // border: 1px solid black;
+            div{
+                display: flex;
+                // @include centraliza();
+                margin-top: 5%;
+                transition: all 400ms;
+
+                &:hover{
+                    label{
+                        font-size: 25px;
+                    }
+                    input{
+                        font-size: 18px;
+                    }
+                }
+                &:focus{
+                    label{
+                        font-size: 25px;
+                    }
+                    input{
+                        font-size: 18px;
+                    }
+                }
+                
+                label{
+                    font-size: 20px;
+                    // margin-right: 5%;
+                    // width: 15%;
+                    margin-left: 25%;
+                    transition: all 400ms;
+                
+                }
+                input{
+                    width: 40%;
+                    background: none;
+                    height: 4%;
+                    padding: 5px;
+                    border: none;
+                    box-shadow: none;
+                    transition: all 400ms;
+                    font-size: 15px;
+                    
+                    &:hover{
+                        height: 40px;
+                    font-size: 18px;
+                    }
+                    &:focus{
+                        outline: none;
+                        font-size: 18px;
+                        .meioModal div label{
+                            font-size: 25px;
+                        }
+                    }
+                }
+                textarea{
+                    padding: 10px;
+                    margin: 10px;
+                }
+            }
+        }
+        .mensagemUnica{
+            margin-top: 10%;
+            display: flex;
+            @include centraliza();
+            width: 100%;
+            padding-right: 10%;
+        }
+        .botoes{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            div{
+                display: flex;
+                @include centraliza();
+                margin-top: 5%;
+
+                input[type=submit]{
+                    background: rgb(6, 221, 6);
+                    border:none;
+                    border-radius:10px;
+                    padding: 12px;
+                    color: white;
+                    transition: all 400ms;
+                    &:hover{
+                        background-color: green;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+#msg{
+    padding: 10px;
+    background: rgba(255, 0, 0, 0.233);
+    border: 2px solid red;
+    color: white;
+    display: block;
+    height: 60%;
+    border-radius: 10px;
+}

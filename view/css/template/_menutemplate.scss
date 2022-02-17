@@ -1,0 +1,124 @@
+.menutemplate{
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    background-color: #f2f2f2;
+    height: 120px;
+    div{
+        display: flex;
+        @include centraliza();
+        a{
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        form{
+            display: flex;
+            @include centraliza();
+        }
+        input{
+            height: 53px;
+            color: #161616;
+            background: #DEDEDE;
+            border-radius: 10px;
+            border: none;
+            padding:20px;
+            width: 551px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            &:focus{
+                border: 2px solid $primaria;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px $primaria;
+                outline: 0px;
+            }
+        }
+        a{
+            background-color: none;
+            // border: 1px solid black;
+            height: 53px;
+            background-color: #DEDEDE;
+            padding: 10px;
+            margin-left: -20px;
+            box-shadow: none;
+            border: none;
+            
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            &:hover{
+            background-color: #c9c9c9;
+
+            }
+            
+        }
+        
+    }
+}
+.submenutemplate{
+    width: 100%;
+    background: #F2F2F2;
+    box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    height: 120px;
+    div{
+        display: flex;
+        @include centraliza();
+        // border: 1px solid black;
+    }
+    .menutem{
+        padding-left: 10%;
+    }
+    a{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    h2{
+        font-family: Cousine;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 27px;
+        text-align: center;
+        color: #A6A6A6;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+        
+        transition: all 400ms;
+        &:hover{
+        color: #7e7c7c;
+        text-shadow: none;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            width: 200px;
+            transform: scaleX(0);
+            height: 5px;
+            bottom: -4.5vh;
+            left: -50%;
+            // right: 100px;
+            background: rgb(0, 0, 0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+          }
+          &:hover{
+            text-decoration: none;
+            &::before{
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
+          }
+        
+    }
+    select{
+        width: 141px;
+        height: 27;
+        color: #A6A6A6;
+        border-radius: 6px;
+        border: 1px solid #161616;
+        padding: 5px;
+        background-color:transparent;
+        option{
+            background-color: transparent;
+        }
+    }
+
+}

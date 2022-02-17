@@ -1,0 +1,6 @@
+Por esse código
+ALTER TABLE `webestuda`.`atividade` 
+ADD COLUMN `arquivo` VARCHAR(100) NULL AFTER `idtopico`,
+ADD COLUMN `texto` TEXT NULL AFTER `arquivo`,
+ADD COLUMN `tipo` VARCHAR(45) NULL AFTER `texto`;
+

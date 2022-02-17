@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.js"></script>
+    <title>Adm</title>
+</head>
+<style>
+    *{
+        color: black;
+    }
+</style>
+<body>
+    <header class="headadm">
+        <div class="slogan">
+            <a href="historico.html">
+                <img src="../../css/img/logos/webestuda.png"  width="91px" height="87px">
+            </a>
+        </div>
+        <div>
+            <a href="curso.html" class="opcoesAdm">Cursos</a>
+            <a href="disciplina.html" class="opcoesAdm">Disciplinas</a>
+            <a href="usuario.html" class="opcoesAdm">Usuários</a>
+
+        </div>
+        <div>
+            <a href="../../../model/usuario/sair.php" class="red-btn">Sair</a>
+        </div>
+    </header>
+
+  
+    <main class="admAdd">
+        <a class="btn-concluir" style="margin-left: 89%;margin-top: 3vh;" id="abreCad">Adicionar</a>
+        <section id="cadastro">
+            <a class="close">x</a>
+            <h1>Adicionar Usuário</h1>
+            <form id="add">
+                <div class="formulario">
+                    <div>
+                        <label for="">Nome:</label>
+                        <input type="text" placeholder="Digite o nome " name="nome" id="nomeC" > <br>
+                        <label for="">Email:</label>
+                        <input type="email" placeholder="Digite o Email" name="email" id="emaila" >
+                    </div>
+                    <div>
+                        <label for="">Senha:</label>
+                        <input type="text" placeholder="Digite a Senha" name="senha" id="senha" > <br>
+                        <label for="">Localização:</label>
+                        <input type="text" placeholder="Digite a cidade" name="localizacao" id="localizacao" >
+                    </div>
+                    <div>
+                        <label for="">Cargo:</label>
+                        <select name="" id="selectCargos">
+                            <!-- <option value="">Defina</option> -->
+                            <option value="Administrador">Administrador</option>
+                            <option value="Aluno">Aluno</option>
+                            <option value="Professor">Professor</option>
+                        </select> <br>
+                            <label for="" id="matricula">Matricula:</label>
+                            <input type="text" id="matricula1" placeholder="Digite a Matricula">
+                    </div>
+                    <div>
+                        <input type="submit" class="btn-concluir">
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <h1>Usuários</h1>
+        <section class="mostraDadosAdm">
+            <table border="0">                         
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Cargo</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody id="conteudo">
+                    <tr>
+                        <td>1</td>
+                        <td>zezinho@gmail.com</td>
+                        <td>Aluno</td>
+                        <td><a href="" id="edita"><img  src="../../css/img/icones/editar.png" width="36px" height="37px"></a><a href="" id="edita"><img  src="../../css/img/icones/excluir.png" width="36px" height="37px"></a> <a href="verUsuario.html" id="edita"><img  src="../../css/img/icones/ver.png" width="36px" height="37px"></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>zezinho@gmail.com</td>
+                        <td>Aluno</td>
+                        <td>
+                            <a href="" id="edita"><img  src="../../css/img/icones/editar.png" width="36px" height="37px"></a>
+                            <a href="" id="edita"><img  src="../../css/img/icones/excluir.png" width="36px" height="37px"></a> 
+                            <a href="verUsuario.html" id="edita"><img  src="../../css/img/icones/ver.png" width="36px" height="37px"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <script src="../../js/main.js"></script>
+        <script>
+            $("#cadastro").hide();
+            $("#abreCad").click(function(){
+                $("#cadastro").fadeIn();
+            });
+            $(".close").click(function(){
+                $("#cadastro").fadeOut();
+            });
+            $("#matricula").hide();
+            $("#matricula1").hide();
+            function displayVals(){
+            var cargos = $("#selectCargos").val();
+                if(cargos == "Aluno"){
+                    $("#matricula").fadeIn();
+                    $("#matricula1").fadeIn();
+                }else{
+                    $("#matricula").fadeOut();
+                    $("#matricula1").fadeOut();
+
+                }
+            }
+            $( "select" ).change( displayVals );
+            displayVals();
+        </script>
+        <script src="../../../model/usuario/usuario.js"></script>
+</body>
+</html>
