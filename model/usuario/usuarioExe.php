@@ -35,12 +35,13 @@
             if($_POST['cargo'] == "Aluno"){
             $historico->cadastraHist("cadastro","Usuario: ".$_POST['nome'],$hoje);
             $usuario->cadastraUsuario($_POST['nome'],$_POST['localizacao'],$_POST['cargo'],
-                $_POST['email'],$_POST['senha'],$hoje,$_POST['matricula']);
+                $_POST['email'],$_POST['senha'],$hoje,$_POST['matricula'],$_POST['curso']);
             }else{
                 $mat = '';
+                $curso = '';
             $historico->cadastraHist("cadastro","Usuario: ".$_POST['nome'],$hoje);
             $usuario->cadastraUsuario($_POST['nome'],$_POST['localizacao'],$_POST['cargo'],
-                $_POST['email'],$_POST['senha'],$hoje,$mat);
+                $_POST['email'],$_POST['senha'],$hoje,$mat,$curso);
             }
             
         break;
@@ -63,6 +64,9 @@
                 $_SESSION['id'] = $pessoa['id'];
                 $_SESSION['email'] = $pessoa['email'];
                 $_SESSION['cargo'] = $pessoa['cargo'];
+                $_SESSION['nome'] = $pessoa['nome'];
+                $_SESSION['curso'] = $pessoa['curso'];
+                $_SESSION['logado'] = 1;
                 if($pessoa['cargo'] == "adm"){
                     header("Location: ../../view/pages/ADM/historico.html");
                     
@@ -71,6 +75,64 @@
                 }
             }
 
+        break;
+        case 6:
+            $perfil = $usuario->buscaIdUsuarios($_POST['idUsu']);
+            ?>
+                    <header>
+                        <h1><b>Bem-vindo <?= $perfil['nome']?></b></h1>
+                    </header>
+                    <main>
+                        <div>
+                            <div>
+                                <p>Nome: <?= $perfil['nome']?></p>
+                            </div>
+                            <?php
+                                if($perfil['cargo'] == "Aluno"){
+                            ?>
+                                    <div>
+                                        <p>Matricula: <?= $perfil['matricula']?> </p>
+                                    </div>
+                                    <div>
+                                        <p>Curso: Informática para Internet</p>
+                                    </div>
+                                    <div>
+                                        <p>Cargo: Aluno</p>
+                                    </div>
+                            <?php         
+                                }
+                            ?>
+                            <?php
+                                if($perfil['cargo'] == "Professor"){
+                            ?>
+                                    <div>
+                                        <p>Disciplinas: 
+                                            <?php
+                                                $pesquisa = $usuario->professorDisciplinas($_POST['idUsu']);
+                                                while($row = $pesquisa->fetch(PDO::FETCH_ASSOC)){
+                                                    echo $row['nome'].", ";
+                                                }
+                                            ?>
+                                            </p>
+                                    </div>
+                                    <div>
+                                        <p>Cargo: Professor</p>
+                                    </div>
+                            <?php         
+                                }
+                            ?>
+                            <div>
+                                <p>Localização: <?= $perfil['localizacao']?>.</p>
+                            </div>
+                            <div>
+                                <p>Email: <?= $perfil['email']?></p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="../login/login.html" class="red-btn">Sair</a>
+                        </div>
+                    </main>
+            <?php
         break;
     }
     // print_r($pessoa);

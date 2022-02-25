@@ -1,8 +1,8 @@
 <?php
 
- require_once "disciplina.php";
- require_once "../curso/curso.php";
- require_once "../usuario/usuario.php";
+require_once "disciplina.php";
+require_once "../curso/curso.php";
+require_once "../usuario/usuario.php";
 require_once "../historico/historico.php";
 
 
@@ -75,6 +75,7 @@ require_once "../historico/historico.php";
                 <div class="dropdown-content">
                     <?php
                     $pesquisa = $disciplina->professorDisciplina($_POST['idProfessor']);
+                    $idprofessor = $_POST['idProfessor'];
                     while($row = $pesquisa->fetch(PDO::FETCH_ASSOC)){
                     ?>
                     <a href="topico.php?id=<?=$row['id']?>"><?=$row['sigla']?></a>
@@ -87,9 +88,51 @@ require_once "../historico/historico.php";
             
                 <span>Opções</span>
                 <div class="dropdown-content">
-                <a href='index.php'>Home</a>
-                <a href=''>Perfil</a>
-                <a href='../login/login.html'>sair</a>
+                    <a href='perfil.php?id=<?=$idprofessor?>'>Perfil</a>
+                    <a href='../login/login.html'>sair</a>
+                </div>
+            </li>
+            <?php
+        break;
+
+        case 6:
+            $pesquisa = $curso->buscaCurso();
+            $professores = $usuario->buscaContas();
+            ?>
+                <select name="curos" id="curso">
+                    <?php
+                while($row = $pesquisa->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?= $row['id']?>"><?= $row['nome']?></option> 
+                    <?php
+                }
+                ?>
+                </select>
+            <?php
+        break;
+        case 7:
+            ?>
+            <li><a href='index.php'>Home</a></li>
+            <li class="dropdown">
+                <span>Disicplinas</span>
+                <div class="dropdown-content">
+                    <?php
+                    $pesquisa = $disciplina->alunoDisciplina($_POST['id']);
+                    $idprofessor = $_POST['id'];
+                    while($row = $pesquisa->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <a href="topico.php?id=<?=$row['id']?>"><?=$row['sigla']?></a>
+                    <?php
+                    }
+                    ?>
+                 </div>
+            </li>
+            <li class="dropdown">
+            
+                <span>Opções</span>
+                <div class="dropdown-content">
+                    <a href='perfil.php?id=<?=$idprofessor?>'>Perfil</a>
+                    <a href='../login/login.html'>sair</a>
                 </div>
             </li>
             <?php

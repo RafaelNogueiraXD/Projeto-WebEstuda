@@ -1,6 +1,5 @@
 // console.log(idProfessor);
-function funcaoAAA(variavel){
-}
+
 function menuProfessor(idprofessor){
     console.log("dsadsa",idprofessor);
     $.ajax({
@@ -9,6 +8,22 @@ function menuProfessor(idprofessor){
         data:{
             determinante: 5,
             idProfessor: idprofessor
+        }
+    }).done(function(e){
+        //$(".mostra").append(e);
+        $("#menuJS").html(e);
+        // console.log(e);
+    });
+        return false;
+}
+function menuAluno(idprofessor){
+    console.log("dsadsa",idprofessor);
+    $.ajax({
+        type:"POST",
+        url: "../../../model/disciplina/disciplinaExe.php",
+        data:{
+            determinante: 7,
+            id: idprofessor
         }
     }).done(function(e){
         //$(".mostra").append(e);

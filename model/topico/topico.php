@@ -8,6 +8,11 @@ class topico extends crud{
         order by data_criacao asc",array());
         return $topicos;
     }
+    function topicosId($id){
+        $resultado = crud::select("*","topico","where id = $id",array());
+        $rest = $resultado->fetch(PDO::FETCH_ASSOC);
+        return $rest;
+    }
 
     function adicionaTopico($titulo,$visualiza,$subtitulo,$idDisciplina,$hoje){
         crud::insert("topico","default,'$titulo','$visualiza','$subtitulo','$idDisciplina','$hoje'",array());

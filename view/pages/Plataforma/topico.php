@@ -4,12 +4,12 @@
  require_once "../template/header.php";
 $idDisciplina = $_GET['id'];
 echo "<script> var idDisciplina = $idDisciplina </script>";
-
 ?>
 <!-- Nav -->
 <script>
 	verlinks(idDisciplina);
 	versections(idDisciplina);
+	mostraTopicosSelect(idDisciplina);
 </script>
 			<style>
 				select{
@@ -44,52 +44,61 @@ echo "<script> var idDisciplina = $idDisciplina </script>";
 				</form>
 
 			</section>
-			<section id="cadastro">
+			<style>
+				.cadastro2{
+					text-align: center;
+					align-items: center;
+					background-color: #f2f2f2;
+					
+				}
+			</style>
+			<section id="cadastro" class="cadastro2">
 					<a class="close">x</a>
 					<h1>Adicionar Item ao tópico</h1>
-					<form >
+					<form action="../../../model/topico/topicoExe.php" method="POST">
+				
 						<div class="formulario">
 							<div>
-								<label for="" >Nome do Arquivo:</label>
-								<input type="text" placeholder="Digite o nome, titulo ou paragrafo"> <br>
+								<label for=""  class="atividade" >Nome do Arquivo:</label>
+								<input type="text" class="atividade"name="titulo" placeholder="Digite o nome do arquivo"> <br>
+								<input type="hidden" name="determinante" value="5">
+								<input type="hidden" name="idDisciplina" value="<?= $idDisciplina ?>">
 								<span>
 									<label for="">Tipo:</label>
-									<select name="" id="escolhaArquivoSection">
+									<select name="tipo" id="escolhaArquivoSection">
 										<option value="1">Fórum</option>
 										<option value="2">Atividade</option>
 										<option value="3">Paragrafo</option>
 									</select>
 								</span>
 								<label for="" class="atividade">Arquivos:</label>
-								<input type="file" class="atividade" placeholder="Adicione um Arquivo">
+								<input type="file" name="arquivo" class="atividade" placeholder="Adicione um Arquivo">
 							</div>
 							<div>
-								<textarea name="forum" class="forum" id="forum" cols="30" rows="10"></textarea>
+								<label for="">Descrição:</label>
+								<textarea name="texto" id="forum" cols="20" rows="5"></textarea>
 							</div>
 						
 							<div>
 								<span>
 									<label for="">Tópico:</label>
-									<select name="" id="">
-										<option value="">Topíco 1</option>
-										<option value="">Topíco 2</option>
-										<option value="">Topíco 3</option>
-										<option value="">Topíco 4</option>
+									<select name="idtopico" id="mostraTopicosSelect">
+
 									</select>
 								</span>
 							</div>
 							<div class="atividade">
 								<label for="">Data de entrega:</label>
-								<input type="date" > <br>
+								<input type="date" class="data" > <br>
 							</div>
 							<div>
-								<a class="btn-concluir">Adicionar</a>
+								<input type="submit" value="adicionar">
 							</div>
 						</div>
 					</form>
 				</section>
 				<div class="tituloDisciplinas">
-					<h1>Titulo 1</h1>
+					
 				</div>
 				<section class="wrapper style1">
 					<div class="container">
@@ -100,7 +109,7 @@ echo "<script> var idDisciplina = $idDisciplina </script>";
 									<!-- Sidebar -->
 										<section class="linksTopicos">
 											<h3>Tópicos</h3>
-											<ul class="links" id="printLinks">
+											<ul class="printLinks links" >
 												<li><a href="#semana1">Semana 1</a></li>
 												<li><a href="#semana2">Semana 2</a></li>
 												<li><a href="#semana3">Semana 3</a></li>
@@ -130,37 +139,7 @@ echo "<script> var idDisciplina = $idDisciplina </script>";
 								<div id="content">
 
 									<!-- Content -->
-										<article id="semana1" class="topicoContexto">
-											<header>
-												<h2>Semana 1</h2>
-												<p>Semana de prova.</p>
-											</header>
-											<section>
-												 <a href="envio.php">Atividade</a> <br>
-													<a href="forum.php">fórum</a>
-												<p>Conteudo 3</p>
-											</section>
-										</article>
-										<article id="semana2" class="topicoContexto">
-											<header>
-												<h2>Semana 2</h2>
-												<p>Semana de prova.</p>
-											</header>
-											<section>
-											
-											</section>
-										</article>
-										<article id="semana3"  class="topicoContexto">
-											<header>
-												<h2>Semana 3</h2>
-												<p>Semana de prova.</p>
-											</header>
-											<section>
-												<a>Conteudo 1</a>
-												<p>Conteudo 2</p>
-												<a>Conteudo 3</a>
-											</section>
-										</article>
+									
 
 								</div>
 							</div>
@@ -215,12 +194,12 @@ echo "<script> var idDisciplina = $idDisciplina </script>";
 					break;
 					case "2":
 						$(".forum").hide();
-						$(".paragrafo").hide();
+						$(".paragrafo").show();
 						$(".atividade").show();
 						console.log(opcao);
 					break;
 					case "3": 
-						$(".forum").hide();
+						$(".forum").show();
 						$(".paragrafo").hide();
 						$(".atividade").hide();
 						console.log(opcao);

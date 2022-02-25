@@ -10,6 +10,8 @@
 		<script src="../../js/jquery.js"></script>
 		<script src="../../../model/topico/topico.js"></script>
 		<script src="../../../model/disciplina/disciplina.js"></script>
+		<script src="../../../model/atividade/atividade.js"></script>
+
 		<style>
 	</style>
 		<link rel="stylesheet" type="text/css" href="../../resources/slick-1.8.1/slick/slick-theme.css"/>
@@ -27,13 +29,15 @@
 					// require_once "../../../model/disciplina/disciplina.php";
 					// $disciplina = new disciplina();
 					session_start();
+					if($_SESSION['logado'] != 1){
+						header("Location: ../login/login.html");
+					}
 					if($_SESSION['cargo'] == "Professor"){
 						?>
 						<script>
 							var professor = true;
 							var idProfesssor = <?= $_SESSION['id']?>;
 							console.log(idProfesssor);
-							funcaoAAA(idProfesssor);
 							menuProfessor(idProfesssor);
 						</script>
 						<?php
@@ -41,7 +45,8 @@
 						?>
 						<script>
 							var professor = false;
-							var idProfesssor = false;
+							var idAluno = <?= $_SESSION['curso']?>;
+							menuAluno(idAluno);
 						</script>
 						<?php
 					}

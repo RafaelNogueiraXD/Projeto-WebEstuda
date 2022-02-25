@@ -9,9 +9,9 @@ class usuario extends crud{
     $cargo,$email,$senha,$data_criacao;
 
     public function cadastraUsuario($nome,$localizacao,
-    $cargo,$email,$senha,$data_criacao,$matricula){
+    $cargo,$email,$senha,$data_criacao,$matricula,$curso){
        $A= crud::insert("usuarios","default,'$nome','$localizacao',
-        '$cargo','$email','$senha','$data_criacao','$matricula'",array());
+        '$cargo','$email','$senha','$data_criacao','$matricula','$curso'",array());
             return  $A;
     }
     public function login($email,$senha){
@@ -33,6 +33,15 @@ class usuario extends crud{
     
     public function buscaContas(){
         $result = crud::select("*","usuarios","order by id desc",array());
+        return $result;
+        
+    }
+    // select d.id,d.nome from usuarios u 
+    // inner join disciplina d 
+    // where d.idProfessor = u.id; 
+    public function professorDisciplinas($id){
+        $result = crud::select("d.id,d.nome","usuarios u 
+        inner join disciplina d ","where d.idProfessor =  u.id and u.id = $id",array());
         return $result;
     }
 } 

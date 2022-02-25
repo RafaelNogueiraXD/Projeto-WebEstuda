@@ -2,7 +2,13 @@
 <!DOCTYPE HTML>
 <?php
  require_once "../template/header.php";
+ $id = $_GET['id'];
+ echo "<script> var idu = $id </script>";
 ?>
+<script src="../../../model/usuario/usuario.js"></script>
+<script>
+    perfil(idu);
+</script>
 <!-- Nav -->
 				
 
@@ -11,7 +17,7 @@
              <style>
                 
              </style>
-            <section class="perfilUsu">
+            <section class="perfilUsu" id="perfilUsu">
                     <header>
                         <h1><b>Bem-vindo Usuário X</b></h1>
                     </header>

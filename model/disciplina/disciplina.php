@@ -29,6 +29,15 @@ class disciplina extends crud{
         inner join disciplina d on u.id = d.idProfessor","",array());
         return $resultado;
     }
+
+// select * from usuarios u 
+// inner join disciplina d 
+// on d.idCurso = u.curso where u.curso = 30;
+    public function alunoDisciplina($idcurso){
+        $resultado = crud::select("d.id, d.sigla","usuarios u
+        inner join disciplina d on d.idCurso = u.curso where u.curso = $idcurso","",array());
+        return $resultado;
+    }
 }
 // $disciplina = new disciplina();
 // $pesquisa = $disciplina->professorDisciplina(0);

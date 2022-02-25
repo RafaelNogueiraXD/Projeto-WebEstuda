@@ -4,3 +4,7 @@ ADD COLUMN `arquivo` VARCHAR(100) NULL AFTER `idtopico`,
 ADD COLUMN `texto` TEXT NULL AFTER `arquivo`,
 ADD COLUMN `tipo` VARCHAR(45) NULL AFTER `texto`;
 
+Colocar resposta como Auto Incremento;
+
+ALTER TABLE `webestuda`.`usuarios` 
+ADD COLUMN `curso` INT NULL AFTER `matricula`;

@@ -9,7 +9,21 @@ function verlinks(idDisicplina){
         }
     }).done(function(e){
         //$(".mostra").append(e);
-        $("#printLinks").empty().html(e);
+        $(".printLinks").empty().html(e);
+    });
+        return false;
+}
+function mostraTopicosSelect(idDisicplina){
+    $.ajax({
+        type:"POST",
+        url: "../../../model/topico/topicoExe.php",
+        data:{
+            determinante: 6,
+            disicplina: idDisicplina
+        }
+    }).done(function(e){
+        //$(".mostra").append(e);
+        $("#mostraTopicosSelect").empty().html(e);
     });
         return false;
 }
