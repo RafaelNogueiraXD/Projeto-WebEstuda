@@ -9,6 +9,7 @@
     switch($x){
        case 1:
             $atvx = $atividade->mostraAtvId($_POST['id']);
+            $id  = $_POST['id'];
             ?>
             <main class="envioContexto">
                 <header>
@@ -35,8 +36,10 @@
                         
                     </script>
                     <div class="envioAtiv">
-                                <form action="">
-                                    <input type="file" name="tarefa">
+                    <form action="../../../model/envioAtividade/envioAtividadeExe.php" method="GET">
+                                    <input type="file" name="arquivoAtividade">
+                                    <input type="hidden" name="idAtividade" value="<?= $id?>">
+                                    <input type="hidden" name="determinante" value="2">
                                     <input type="submit">
                                 </form>
                             </div>

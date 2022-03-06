@@ -42,10 +42,13 @@
 						</script>
 						<?php
 					}else{
+						$curso = $_SESSION['id'];
 						?>
 						<script>
+							var $curso = <?=$curso?>;
+							console.log($curso);
 							var professor = false;
-							var idAluno = <?= $_SESSION['curso']?>;
+							var idAluno = 30;
 							menuAluno(idAluno);
 						</script>
 						<?php

@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
 <!DOCTYPE HTML>
+<script src="../../../model/envioAtividade/envioAtividade.js"></script>
+
 <?php
  require_once "../template/header.php";
  $id = $_GET['id'];
@@ -7,6 +9,7 @@ echo "<script> var id = $id </script>";
 ?>
 <script>
     mostraAtividadeX(id);
+    mostraAlunosEnvio(id);
 </script>
 <style>
     .tabelaAlunos{
@@ -49,8 +52,10 @@ echo "<script> var id = $id </script>";
                         <div>
                             <a href="" class="btn" id="removeBtn">enviar</a>
                             <div class="envioAtiv">
-                                <form action="">
-                                    <input type="file" name="tarefa">
+                                <form action="../../../model/envioAtividade/envioAtividadeExe.php" method="GET">
+                                    <input type="file" name="arquivoAtividade">
+                                    <input type="hidden" name="idAtividade" value="<?= $id?>">
+                                    <input type="hidden" name="determinante" value="2">
                                     <input type="submit">
                                 </form>
                             </div>
@@ -58,7 +63,7 @@ echo "<script> var id = $id </script>";
                     </footer>
                 </main>
             </div>
-            <div class="tabelaAlunos">
+            <div class="tabelaAlunos" id="professorAuto">
                 <table>
                     <thead>
                         <th>Nome</th>
@@ -66,8 +71,8 @@ echo "<script> var id = $id </script>";
                         <th>Envio</th>  
                         <th>Data</th>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="mostraEnvios">
+                        <tr >
                             <td>Rafael</td>
                             <td>Rafael@gmail.com</td>
                             <td><a href="">osidajoisd.pdf</a></td>
@@ -108,6 +113,9 @@ echo "<script> var id = $id </script>";
 			<script src="assets/js/main.js"></script>
 			<script src="../../js/puro.js"></script>
             <script>
+                if(professor == false){
+					$("#professorAuto").hide();
+				}
                 $(".envioAtiv").hide();
                 
                 function envioAtividade(){

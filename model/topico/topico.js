@@ -45,9 +45,6 @@ function versections(idDisicplina){
     });
         return false;
 }
-$("form#addtopicos").submit(function(){
-   
-});
 function cadastraTopico(){
     $.ajax({
         type:"POST",
